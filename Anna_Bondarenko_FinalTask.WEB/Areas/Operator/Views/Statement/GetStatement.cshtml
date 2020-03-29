@@ -1,0 +1,91 @@
+﻿@model Anna_Bondarenko_FinalTask.Models.Models.Statement
+
+@{
+    ViewBag.Title = "GetStatement";
+}
+
+@if (Model != null)
+{
+    <div class="partial">
+
+        @foreach (var item1 in Model.Enrollee)
+        {
+        <div class=" col-lg-11  centered ">
+            <dl class="dl-horizontal font-details ">
+
+                <dt>
+                    @Html.DisplayName("Firstname")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item1.FirstName)
+                </dd>
+                <dt>
+                    @Html.DisplayName("Surname")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item1.Surname)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Patronymic")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item1.Patronymic)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Email")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item1.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("City")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item1.City)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Region")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item1.Region)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("SchoolName")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => item1.SchoolName)
+                </dd>
+                <dt>
+                    @Html.DisplayName("Image")
+                </dt>
+
+                <dd>
+                    <img  width="500" height="500" src="@Url.Action("GetImage", new {area = "Operator", controller = "Enrollee", id = item1.Id})" />
+
+                </dd>
+            </dl>
+
+            @Html.ActionLink("Delete", "StatementDelete", new { area = "Operator", controller = "Statement", id = item1.Id })
+
+        </div>
+        }
+
+    </div>
+
+
+    <div class="btn btn-partial">
+    @Html.ActionLink("To Enroll", "Calculate", new { controller = "Statement", area = "Operator" })
+    </div>
+}

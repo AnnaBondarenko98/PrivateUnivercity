@@ -1,0 +1,102 @@
+﻿
+@model IEnumerable<Anna_Bondarenko_FinalTask.Models.Models.Enrollee>
+
+@{
+    ViewBag.Title = "GetEnrolees";
+}
+
+
+@Html.ValidationMessage("StatementError")
+
+<div class="partial">
+
+            @foreach (var item in Model)
+            {
+                <div class=" col-lg-11  centered ">
+                    <dl class="dl-horizontal font-details " >
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Surname)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(modelItem => item.Surname)
+                        </dd>
+                        
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Patronymic)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(modelItem => item.Patronymic)
+                        </dd>
+                        
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </dd>
+                        
+                        <dt>
+                            @Html.DisplayNameFor(model => model.City)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </dd>
+                        
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Region)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(modelItem => item.Region)
+                        </dd>
+                        
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SchoolName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(modelItem => item.SchoolName)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ImageMimeType)
+                        </dt>
+
+                        <dd>
+                            <img  width="500" height="500" src="@Url.Action("GetImage",new {area="Operator", controller="Enrollee", id=item.Id })" />
+
+                        </dd>
+                    </dl>
+
+                    @if (!item.Lock)
+                    {
+                        @Html.ActionLink("Lock |", "AddRoleLock", new { area = "Operator", controller = "Enrollee", id = item.Id })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Unlock |", "AddRoleLock", new { area = "Operator", controller = "Enrollee", id = item.Id })
+                    }
+                    @Html.ActionLink("Delete ", "EnroleeDelete", new { area = "Operator", controller = "Enrollee", id = item.Id })|
+                    @if (User.IsInRole("Operator"))
+                    {
+                        @Html.ActionLink("Add to Statement", "AddToStatement", new { area = "Operator", controller = "Enrollee", id = item.Id })
+                    }
+
+
+                </div>
+                <hr/>
+            }
+        </div>
+
+

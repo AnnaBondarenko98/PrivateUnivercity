@@ -1,0 +1,40 @@
+﻿@using Anna_Bondarenko_FinalTask.Models.Models
+@model IEnumerable<Anna_Bondarenko_FinalTask.WEB.Models.CommentVm>
+@if (User.Identity.IsAuthenticated)
+{
+    Html.RenderPartial("LeftCommentPartial", new Comment());
+}
+
+
+
+@if (Model !=null)
+{
+    <div>
+        @foreach (var b in Model)
+        {
+
+        <div class="item row itemcomment ">
+            <div class="col-md-2">
+                <div class="img-block">
+
+                    <div>@b.Date </div>
+
+                </div>
+            </div>
+            <div class="col-right col-md-10">
+                <div class="title"><h5>@b.Name</h5></div>
+                <div class="description ">
+                    @b.Text
+                </div>
+            </div>
+
+        </div>
+
+        }
+
+        
+
+    </div>
+    <br />
+}
+

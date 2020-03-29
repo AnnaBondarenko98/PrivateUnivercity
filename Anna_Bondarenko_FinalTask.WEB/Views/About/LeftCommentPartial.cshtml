@@ -1,0 +1,19 @@
+﻿@model Anna_Bondarenko_FinalTask.Models.Models.Comment
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <br />
+
+    @Html.EditorFor(model => model.Text, new { htmlAttributes = new { placeholder = "Add comment" } })
+
+    @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+
+    <br /><br />
+
+    <input type="submit" value="Send" class="btn btn-partial btn-default " />
+    <br />
+
+}
+

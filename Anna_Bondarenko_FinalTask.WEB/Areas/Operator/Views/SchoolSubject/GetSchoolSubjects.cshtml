@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Anna_Bondarenko_FinalTask.Models.Models.SchoolSubject>
+
+@{
+    ViewBag.Title = "GetSchoolSubjects";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "SchoolSubjectCreate", new { area = "Operator", controller = "SchoolSubject"})
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            <div class="ellipce-for-table"> @Html.DisplayNameFor(model => model.Name)</div>
+</th>
+        <th>
+            <div class="ellipce-for-table">  Action </div>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <div class="ellipce-for-table-call">  @Html.DisplayFor(modelItem => item.Name)</div>
+        </td>
+        <td>
+            <div class="ellipce-for-table-call">@Html.ActionLink("Edit", "SchoolSubjectEdit", new { area="Operator",controller="SchoolSubject",id=item.Id })
+            @Html.ActionLink("Delete", "SchoolSubjectDelete", new { area = "Operator", controller = "SchoolSubject", id =item.Id })</div>
+        </td>
+    </tr>
+}
+
+</table>

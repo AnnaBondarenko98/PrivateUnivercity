@@ -1,0 +1,19 @@
+﻿@model ICollection<Anna_Bondarenko_FinalTask.WEB.Areas.Operator.Models.CheckModel>
+@{
+    Layout =null;
+}
+
+@foreach (var s in Model)
+{
+    <label class="checkbox checkbox-inline col-lg-2">
+        @if (s.Checked)
+        {
+            <input type="checkbox" name="names" checked="checked" value="@s.Subject.Name">@s.Subject.Name
+        }
+        else
+        {
+            <input type="checkbox" name="names" value="@s.Subject.Name">@s.Subject.Name
+        }
+    </label>
+}
+

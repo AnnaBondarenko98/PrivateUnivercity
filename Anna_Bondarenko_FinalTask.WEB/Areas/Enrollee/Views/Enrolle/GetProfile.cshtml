@@ -1,0 +1,79 @@
+﻿@model Anna_Bondarenko_FinalTask.Models.Models.Enrollee
+
+@{
+    ViewBag.Title = "GetProfile";
+}
+
+
+<div class="col-lg-11">
+    <dl class="dl-horizontal font-details">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patronymic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SchoolName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchoolName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageMimeType)
+        </dt>
+
+        <dd>
+            <img  width="500" height="500" src="@Url.Action("GetImage",new {area="Enrollee", controller="Enrolle", id=Model.Id })" />
+
+        </dd>
+
+    </dl>
+</div>
+<div class="btn btn-partial col-lg-2">
+    @Html.ActionLink("Edit", "EnrolleEdit", new {area="Enrollee",controller="Enrolle", id = Model.Id }) 
+</div>

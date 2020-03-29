@@ -1,0 +1,34 @@
+﻿@model Anna_Bondarenko_FinalTask.Models.Models.SchoolSubject
+
+@{
+    ViewBag.Title = "SchoolSubjectDelete";
+}
+
+@Html.ValidationMessage("SchoolSubjectDelete", new { @class = "text-danger" })
+
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <dl class="dl-horizontal, font-details">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                <div class="btn btn-partial">@Html.ActionLink("Back to List of school subjects", "GetSchoolSubjects", new { area = "Operator", controller = "SchoolSubject" })</div>
+            </div>
+        }
+    </div>
+
+

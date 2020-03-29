@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Anna_Bondarenko_FinalTask.Models.Models.Enrollee>
+
+@{
+    ViewBag.Title = "GetAllAddedstudent";
+}
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            <div class="ellipce-for-table">    @Html.DisplayNameFor(model => model.Email)</div>
+        </th>
+
+        <th>
+            <div class="ellipce-for-table">  @Html.DisplayNameFor(model => model.SchoolName)</div>
+        </th>
+        <th>
+            <div class="ellipce-for-table">  @Html.DisplayNameFor(model => model.Lock)</div>
+        </th>
+        <th>
+            <div class="ellipce-for-table">   @Html.DisplayNameFor(model => model.Faculties.First().FacultyNumber)</div>
+        </th>
+        <th>
+            <div class="ellipce-for-table">   @Html.DisplayName("Status")</div>
+        </th>
+        <th><div class="ellipce-for-table">Action</div></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        foreach (var faculty in item.Faculties)
+        {
+            <tr>
+                <td>
+                    <div class="ellipce-for-table-call">  @Html.DisplayFor(modelItem => item.Email)</div>
+                </td>
+
+                <td>
+                    <div class="ellipce-for-table-call">  @Html.DisplayFor(modelItem => item.SchoolName)</div>
+                </td>
+                <td>
+                    <div class="ellipce-for-table-call">  @Html.DisplayName(item.Lock.ToString())</div>
+                </td>
+                <th>
+
+                    <div class="ellipce-for-table-call">   @Html.DisplayFor(m => faculty.FacultyNumber)</div>
+
+                </th>
+                <th>
+
+                    <div class="ellipce-for-table-call">   @Html.DisplayFor(m => faculty.Enrollees.First(e => e.Email == item.Email).StudentStatuses.First(s => s.Faculty.FacultyNumber == faculty.FacultyNumber).Status)</div>
+
+                </th>
+                <td>
+                    <div class="ellipce-for-table-call">
+                        @Html.ActionLink("Delete", "AddedStudentDelete", new { id = item.Id, facultyid = faculty.Id })
+
+                        @if (!item.Lock)
+                    {
+                            @Html.ActionLink(" Lock ", "AddRoleLock", new { area = "Operator", controller = "Enrollee", id = item.Id })
+                        }
+                        else
+                        {
+                            @Html.ActionLink(" Unlock ", "AddRoleLock", new { area = "Operator", controller = "Enrollee", id = item.Id })
+                        }
+                    </div>
+            </tr>
+        }
+    }
+
+</table>

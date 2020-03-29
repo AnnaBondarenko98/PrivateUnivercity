@@ -1,0 +1,62 @@
+﻿@model Anna_Bondarenko_FinalTask.Models.Models.Faculty
+
+@{
+    ViewBag.Title = "FacultyDetails";
+}
+
+
+<div class="col-md-11 centered ">
+    <dl class="dl-horizontal font-details">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetPlaces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetPlaces)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AllPlaces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AllPlaces)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacultySubjects)
+        </dt>
+
+        <dd>
+            @foreach (var item in Model.FacultySubjects)
+            {
+                <div class="centered">@Html.DisplayFor(model => item.Name)</div><br/><br>
+                <div class="centered"> @Html.DisplayFor(model => item.Description)</div><hr><br/>
+            } 
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.ExaminationSubjects)
+        </dt>
+
+        <dd>
+            @foreach (var item in Model.ExaminationSubjects)
+            {
+                <div class="centered">@Html.DisplayFor(model => item.Name)</div><br/><br>
+            } 
+        </dd>
+
+    </dl>
+</div>
+<div class="col-lg-10">
+    <div class="btn btn-partial">@Html.ActionLink("Back to List", "GetFaculties", new { controller = "Enrolle", Area = "Enrollee" })</div>
+</div>
+

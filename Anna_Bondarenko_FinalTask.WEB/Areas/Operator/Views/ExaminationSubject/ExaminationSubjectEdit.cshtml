@@ -1,0 +1,33 @@
+﻿@model Anna_Bondarenko_FinalTask.Models.Models.ExaminationSubject
+
+@{
+    ViewBag.Title = "ExaminationSubjectEdit";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-lg-7">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-partial" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="btn btn-PrewDetails2">
+    @Html.ActionLink("Back to Examination Subjects", "GetExaminationSubject", new { area = "Operator", controller = "ExaminationSubject" })
+</div>

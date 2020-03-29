@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Anna_Bondarenko_FinalTask.WEB.Models.OperatorVm>
+
+@{
+    ViewBag.Title = "GetOperators";
+}
+
+
+<p>
+    @Html.ActionLink("Create New Operator", "OperatorRegister")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <div class="ellipce-for-table">  @Html.DisplayNameFor(model => model.Name)</div>
+        </th>
+        <th>
+            <div class="ellipce-for-table">  @Html.DisplayNameFor(model => model.Surname)</div>
+        </th>
+        <th>
+            <div class="ellipce-for-table">   @Html.DisplayNameFor(model => model.Email)</div>
+        </th>
+        <th><div class="ellipce-for-table">  Action </div></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div class="ellipce-for-table-call">  @Html.DisplayFor(modelItem => item.Name)</div>
+            </td>
+            <td>
+                <div class="ellipce-for-table-call">  @Html.DisplayFor(modelItem => item.Surname)</div>
+            </td>
+            <td>
+                <div class="ellipce-for-table-call">  @Html.DisplayFor(modelItem => item.Email)</div>
+            </td>
+            <td>
+                <div class="ellipce-for-table-call">
+                    @Html.ActionLink("Edit", "OperatorEdit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "OperatorDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "OperatorDelete", new { id = item.Id })
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

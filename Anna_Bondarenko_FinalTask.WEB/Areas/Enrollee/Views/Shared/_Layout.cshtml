@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*<link rel="stylesheet" href="~/Content/font-awesome.min.css">*@
+</head>
+<body class="">
+    <div id="page-wrapper">
+        <div id="page">
+            <div style="height: 198px; background: rgb(56, 88, 139) url(../../../../Content/headerImage.png) no-repeat scroll 100px 10px; margin: 0 0 0 -10px;" id="header">
+                <div class=" clearfix">
+                    <header>
+                        <div id="vesti-h">
+                            <p><a href="http://google.news" target="_blank">News</a></p>
+                        </div>
+                        <div id="vesti-title">
+                            <p>Welcome to Private University</p>
+                        </div>
+
+                    </header>
+                </div>
+            </div>
+
+
+
+            <div id="main" class="clearfix">
+                <aside class="left-sidebar"></aside>
+
+                <div class="middle">
+                    <div id="sidebar-first" class="column sidebar" style="float: left; width: 220px; margin-left: -250px; margin-top: -12px;">
+                        <div class="region ">
+                            <div id="block-menu-block-61" class="">
+
+                                <div class="content">
+                                    <div class="">
+                                        <ul class="menu">
+                                            <li class="active leaf"> @Html.ActionLink("Faculties", "GetFaculty", "Faculty", new { area = "" }, new { @class = "navbar-link " })</li>
+                                            <li class="active leaf"> @Html.ActionLink("About", "About", new { area = "", controller = "About" })</li>
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+
+                                                if (User.IsInRole("Admin"))
+                                                {
+
+                                                    <li class="active leaf"> @Html.ActionLink("Edit the operators", "GetOperators", new { area = "Admin", controller = "Operator" })</li>
+
+                                                }
+                                                if (User.IsInRole("Operator"))
+                                                {
+                                                    <li class="active leaf"> @Html.ActionLink("Edit the faculties", "GetFaculty", new { area = "Operator", controller = "Faculty" })</li>
+                                                    <li class="active leaf"> @Html.ActionLink("Edit the list of Faculty Subjects", "GetFacultySubjects", new { area = "Operator", controller = "FacultySubject" })</li>
+                                                    <li class="active leaf"> @Html.ActionLink("Edit the list of School Subjects", "GetSchoolSubjects", new { area = "Operator", controller = "SchoolSubject" })</li>
+                                                    <li class="active leaf"> @Html.ActionLink("Edit the list of Enrollees", "GetEnrollees", new { area = "Operator", controller = "Enrollee" })</li>
+                                                    <li class="active leaf"> @Html.ActionLink("Show added students", "GetAllAddedStudent", new { area = "Operator", controller = "Statement" })</li>
+                                                    <li class="active leaf"> @Html.ActionLink("Show Statement List", "GetStatement", new { area = "Operator", controller = "Statement" })</li>
+                                                    <li class="active leaf"> @Html.ActionLink("Show the list of Exam Subjects", "GetExaminationSubject", new { area = "Operator", controller = "ExaminationSubject" })</li>
+                                                }
+                                                if (User.IsInRole("User"))
+                                                {
+                                                    <li class="active leaf"> @Html.ActionLink("Profile", "GetProfile", new { area = "Enrollee", controller = "Enrolle" })</li>
+                                                    <li class="active leaf"> @Html.ActionLink("Added faculties", "GetFaculties", new { area = "Enrollee", controller = "Enrolle" })</li>
+
+                                                }
+
+                                                <li class="active leaf">@Html.ActionLink("Log out", "Logout", new { area = "", controller = "Account" })</li>
+                                            }
+                                            else
+                                            {
+
+                                                <li class="active leaf">@Html.ActionLink("Log in ", "Login", new { area = "", controller = "Account" })</li>
+                                                <li class="active leaf"> @Html.ActionLink("Register", "Register", "Account")</li>
+
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--/div> <!-- /.section, /#sidebar-first -->
+
+                    <div class="region region-content">
+                        <div id="block-system-main" class="">
+                            <div class="content">
+                                <div id="node-30" class="" about="/admission" typeof="sioc:Item foaf:Document">
+                                    <div class="content">
+                                        <div class="field ">
+
+                                            @RenderBody()
+
+
+                                        </div>
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- .middle-->
+            </div>
+
+            <div id="footer">
+                <div class="">
+                    <footer class="footer" data-thmr="thmr_32">
+                        <div class="copyright">
+                            <p>
+                                © Private University<br>
+                                Use of any materials posted on this site is permitted provided that the link to www.bla.bla.ru. For online publications, a direct link, open to search engines, is required.
+                                <br>
+                            </p>
+                        </div>
+                        <div class="right-line"></div>
+                        <div class="contact-info">
+                            <p>Address: st. University, 24</p>
+                            <p>Contact-center: +380 32 23 23 234 </p>
+                        </div>
+                    </footer><!-- .footer -->
+                </div>
+            </div> <!-- /.section, /#footer -->
+
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/jquery-1.10.2.js")
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.js")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

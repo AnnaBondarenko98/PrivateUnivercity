@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Anna_Bondarenko_FinalTask.WEB.Models.CommentVm>
+@{
+    ViewBag.Title = "About";
+}
+
+<h2>About</h2>
+
+<div>
+
+
+    <div class="item row ">
+        <div class="col-md-2">
+            <div class="img-block">
+
+                <img src="../../okimg2.png" alt="">
+
+            </div>
+        </div>
+        <div class="col-right col-md-10">
+            <div class="title"><h4>About Our Faculties</h4></div>
+            <div class="description ">
+                Information is any information received and transmitted, stored by various sources. Information is the whole body of information about the world around us, about all possible processes taking place in it, which can be perceived by living organisms, electronic machines and other information systems.
+
+                Information is meaningful information about something when the form of their presentation is also information, that is, it has a formatting function in accordance with its own nature.
+
+                Information is all that can be supplemented by our knowledge and assumptions. Information is information about something, regardless of the form of their presentation.
+
+                Information is a psychic product of any psychophysical organism, produced by it when using some means, called a medium of information.
+
+                Information is information perceived by a person and (or) special. devices as a reflection of the facts of the material or spiritual world in the process of communication.
+
+                Information is data organized in such a way that it makes sense for a person who deals with them.
+
+                Information is the value that a person deposits into data based on known agreements used to represent them.
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div>
+    @Html.ValidationMessageFor(model => model.First().Text, "", new { @class = "text-danger" })
+    @Html.Partial("CommentsPatrial", Model)
+</div>

@@ -1,0 +1,49 @@
+﻿@model  IEnumerable<Anna_Bondarenko_FinalTask.Models.Models.Faculty>
+
+@{
+    Layout = null;
+}
+<div class="partial">
+    <div class="container">
+        <div class="row centered">
+            @foreach (var item in Model)
+            {
+                <div class=" col-md-3 tilt centered ">
+                    <dl class="dl-horizontal " id="dg">
+
+                        <dt>
+                            @Html.DisplayNameFor((model) => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => item.Name)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.AllPlaces)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => item.AllPlaces)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.BudgetPlaces)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => item.BudgetPlaces)
+                        </dd>
+                        @if(User.IsInRole("User"))
+                        {
+                            <dt></dt>
+                            <dd>
+                                <div class="btn btn-partial btn-default"> @Html.ActionLink("Join", "Create", new { area="Enrollee",controller="Faculty", id = item.Id })</div>
+                            </dd>
+                        }
+                    </dl>
+                    <div class="btn-partial btn centered">@Html.ActionLink("Details", "FacultyDetails", new { controller = "Faculty", Area = "", id = item.Id })</div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

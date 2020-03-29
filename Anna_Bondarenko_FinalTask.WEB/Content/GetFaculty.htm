@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetFaculty</title>
+    <link href="GetFaculty_files/bootstrap.css" rel="stylesheet">
+<link href="GetFaculty_files/site.css" rel="stylesheet">
+
+    <script src="GetFaculty_files/modernizr-2.js"></script>
+
+    
+</head>
+<body>
+<div id="page-wrapper">
+    <div id="page">
+    <div style="height: 198px; background: rgb(56, 88, 139) url(headerImage.png) no-repeat scroll 0px 0px; margin: 0 0 0 -10px;" id="header">
+        <div class="section clearfix">
+            <header>
+                <div id="vesti-h">
+                    <p><a href="http://google.news/" target="_blank">News</a></p>
+                </div>
+                <div id="vesti-title">
+                    <p>Welcome to Private Univercity</p>
+                </div>
+
+            </header>
+        </div>
+    </div>
+
+
+
+    <div id="main" class="clearfix">
+        <aside class="left-sidebar"></aside>
+
+        <div class="middle">
+            <div id="sidebar-first" class="column sidebar" style="float: left; width: 220px; margin-left: -250px; margin-top: -12px;">
+                <div class="region region-sidebar-first">
+                    <div id="block-menu-block-61" class="block block-menu-block">
+
+                        <div class="content">
+                            <div class="menu-block-wrapper menu-block-61 menu-name-main-menu parent-mlid-0 menu-level-2">
+                                <ul class="menu">
+                                    <li class="active leaf"> <a class="navbar-link " href="http://localhost:2852/">Faculties</a></li>
+                                            <li class="dropdown ">
+                                                <a class="dropdown-toggle" data-toggle="dropdown">Management</a>
+                                                <ul class="dropdown-menu " role="menu">
+                                                    <li> <a href="http://localhost:2852/Operator/Faculty/GetFaculty">Edit the faculties</a></li>
+                                                    <li> <a href="http://localhost:2852/Operator/FacultySubject/GetFacultySubjects">Edit the list of Faculty Subjects</a></li>
+                                                    <li> <a href="http://localhost:2852/Operator/SchoolSubject/GetSchoolSubjects">Edit the list of School Subjects</a></li>
+                                                    <li> <a href="http://localhost:2852/Operator/Enrollee/GetEnrollees">Edit the list of Enrollees</a></li>
+                                                    <li> <a href="http://localhost:2852/Operator/Statement/GetStatement">Show Statement List</a></li>
+                                                    <li> <a href="http://localhost:2852/Operator/ExaminationSubject/GetExaminationSubject">Show the list of Exam Subjects</a></li>
+
+                                                </ul>
+                                            </li>
+                                        <li class="active leaf"><a href="http://localhost:2852/Account/Logout">Log out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/div> <!-- /.section, /#sidebar-first -->
+
+            <div class="tabs"></div>
+            <div class="region region-content">
+                <div id="block-system-main" class="block block-system">
+                    <div class="content">
+                        <div id="node-30" class="node node-donnu" about="/admission" typeof="sioc:Item foaf:Document">
+                            <span property="dc:title" content="Поступление" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+                            <div class="content clearfix">
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+                                            
+
+
+<h2>GetFaculty</h2>
+
+
+<form action="/Faculty/FacultySort" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#table" id="form0" method="post"><input name="__RequestVerificationToken" value="ybzppzRV3c_a0CMExUPTOmv2bzJkGqaGLkjrOwVxE0uzjFoesvRaSi1JzHAqbB6suctcGWxuamfwg4cxHlFj0sw2mGLVHglO7xsUgSjz4SDJDpP_fBz-LcnQNz0oRba-wdBSWVroQKU19_bTjZKu-A2" type="hidden">    <div class="container w  ">
+        <div class=" row centered">
+            <div class=" dropdown  myrow1 col-lg-2">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    Sort by
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <button class="btn-link" type="submit" name="id" value="0"> Budget Places (0-...)</button>
+                    </li>
+                    <li>
+                        <button class="btn-link" type="submit" name="id" value="1"> Budget Places (...-0)</button>
+                    </li>
+                    <li>
+                        <button class="btn-link" type="submit" name="id" value="2">Name(a-z)</button>
+                    </li>
+                    <li>
+                        <button class="btn-link" type="submit" name="id" value="3"> Name (z-a)</button>
+                    </li>
+                    <li>
+                        <button class="btn-link" type="submit" name="id" value="4"> All Places (0-...)</button>
+                    </li>
+                    <li>
+                        <button class="btn-link" type="submit" name="id" value="5"> All Places (...-0)</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</form><div id="table">
+
+<div class="partial">
+    <div class="container">
+        <div class="row centered">
+                <div class=" col-md-3 tilt centered ">
+                    <dl class="dl-horizontal " id="dg">
+
+                        <dt>
+                            Faculty name
+                        </dt>
+
+                        <dd>
+                            Faculty1
+                        </dd>
+                        <dt>
+                            Total number of seats
+                        </dt>
+
+                        <dd>
+                            84
+                        </dd>
+                        <dt>
+                            Budget places number
+                        </dt>
+
+                        <dd>
+                            22
+                        </dd>
+                    </dl>
+                </div>
+                <div class=" col-md-3 tilt centered ">
+                    <dl class="dl-horizontal " id="dg">
+
+                        <dt>
+                            Faculty name
+                        </dt>
+
+                        <dd>
+                            Faculty2
+                        </dd>
+                        <dt>
+                            Total number of seats
+                        </dt>
+
+                        <dd>
+                            61
+                        </dd>
+                        <dt>
+                            Budget places number
+                        </dt>
+
+                        <dd>
+                            53
+                        </dd>
+                    </dl>
+                </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+<script src="GetFaculty_files/jquery-1_002.js"></script>
+
+<script src="GetFaculty_files/jquery_003.js"></script>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="links"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .middle-->
+    </div>
+
+    <div id="footer">
+        <div class="section">
+            <footer class="footer" data-thmr="thmr_32">
+                <div class="copyright">
+                    <p>
+                        © Private University<br>
+                        Use of any materials posted on this site is 
+permitted provided that the link to www.bla.bla.ru. For online 
+publications, a direct link, open to search engines, is required.
+                        <br>
+                    </p>
+                </div>
+                <div class="right-line"></div>
+                <div class="contact-info">
+                    <p>Address: st. University, 24</p>
+                    <p>Contact-center: +380 32 23 23 234 </p>
+                </div>
+            </footer><!-- .footer -->
+        </div>
+    </div> <!-- /.section, /#footer -->
+
+</div>
+</div>
+    <script src="GetFaculty_files/jquery-1.js"></script>
+
+    <script src="GetFaculty_files/jquery-1.js"></script>
+
+    <script src="GetFaculty_files/jquery_002.js"></script>
+
+    <script src="GetFaculty_files/jquery.js"></script>
+
+    <script src="GetFaculty_files/bootstrap.js"></script>
+<script src="GetFaculty_files/respond.js"></script>
+
+    
+
+</body></html>

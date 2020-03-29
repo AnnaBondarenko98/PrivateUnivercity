@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Anna_Bondarenko_FinalTask.Models.Models.Faculty>
+
+@{
+    ViewBag.Title = "GetFaculty";
+}
+@if (Model.Count()>0)
+{
+    using (Ajax.BeginForm("FacultySort", new { controller = "Faculty", area = "" }, new AjaxOptions { UpdateTargetId = "table" }))
+     {
+
+         @Html.AntiForgeryToken()
+
+         <h2 class="centered">Our Faculties</h2>
+         <div class=" dropdown  ">
+             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                 Sort by
+                 <span class="caret"></span>
+             </button>
+             <ul class="dropdown-menu">
+                 <li>
+                     <button class="btn-link" type="submit" name="id" value="0"> Budget Places (0-...)</button>
+                 </li>
+                 <li>
+                     <button class="btn-link" type="submit" name="id" value="1"> Budget Places (...-0)</button>
+                 </li>
+                 <li>
+                     <button class="btn-link" type="submit" name="id" value="2">Name(a-z)</button>
+                 </li>
+                 <li>
+                     <button class="btn-link" type="submit" name="id" value="3"> Name (z-a)</button>
+                 </li>
+                 <li>
+                     <button class="btn-link" type="submit" name="id" value="4"> All Places (0-...)</button>
+                 </li>
+                 <li>
+                     <button class="btn-link" type="submit" name="id" value="5"> All Places (...-0)</button>
+                 </li>
+             </ul>
+         </div>
+         <div class="col-lg-10">  <div class="col-sm-1">Budget places: </div>
+             <div class="">
+                 @Html.Editor("From", new { htmlAttributes = new { placeholder = "From" } })
+             </div>
+             <div class=" ">
+
+                 @Html.Editor("To", new { htmlAttributes = new { placeholder = "To" } })
+             </div>
+             <div class=" ">
+                 <button class="btn btn-default" type="submit" name="id" value="3"> Apply</button>
+             </div>
+         </div>
+
+     }
+}
+
+<div id="table">
+    @{ Html.RenderPartial("GetFacultyPartial", Model);}
+</div>
+@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

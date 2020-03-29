@@ -1,0 +1,46 @@
+﻿@model Anna_Bondarenko_FinalTask.WEB.Models.OperatorVm
+
+@{
+    ViewBag.Title = "OperatorDelete";
+}
+
+
+<h3>Are you sure you want to delete this?</h3>
+<div class="col-lg-11 centered">
+    <dl class="dl-horizontal font-details">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="">
+            <input type="submit" value="Delete" class="btn btn-partial" />
+            @Html.ActionLink("Back to List of Operators", "GetOperators")
+        </div>
+    }
+</div>

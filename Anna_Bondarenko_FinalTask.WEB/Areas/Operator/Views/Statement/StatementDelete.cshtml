@@ -1,0 +1,85 @@
+﻿@model Anna_Bondarenko_FinalTask.Models.Models.Enrollee
+
+@{
+    ViewBag.Title = "StatementDelete";
+}
+
+<h3>Are you sure you want to delete this?</h3>
+<div class="col-md-11 centered">
+    <dl class="dl-horizontal font-details">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patronymic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SchoolName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchoolName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageMimeType)
+        </dt>
+
+        <td>
+            <img class="img-thumbnail" width="50" height="50" src="@Url.Action("GetImage",new {area="Operator", controller="Enrollee", id=Model.Id })" />
+        </td>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+           <div class="btn-partial btn"> @Html.ActionLink("Back to List", "GetStatement", new { area = "Operator", controller = "Statement" })</div>
+        </div>
+    }
+</div>

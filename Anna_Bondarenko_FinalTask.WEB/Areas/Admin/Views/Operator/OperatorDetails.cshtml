@@ -1,0 +1,38 @@
+﻿@model Anna_Bondarenko_FinalTask.WEB.Models.OperatorVm
+
+@{
+    ViewBag.Title = "OperatorDetails";
+}
+
+
+<div class="col-lg-11 centered">
+    <dl class="dl-horizontal font-details">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+
+ <div class="btn  btn-partial"> @Html.ActionLink("Edit", "OperatorEdit", new { id = Model.Id }) </div>
+<div class="btn btn-partial">  @Html.ActionLink("Back to List", "GetOperators")</div>

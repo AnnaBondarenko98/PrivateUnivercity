@@ -1,0 +1,46 @@
+﻿@model Anna_Bondarenko_FinalTask.Models.Models.Faculty
+
+@{
+    ViewBag.Title = "FacultyDelete";
+}
+
+<h3>Are you sure you want to delete this?</h3>
+<div class="col-md-11 centered">
+    <hr />
+    @Html.ValidationMessage("FacultyDelete", new { @class = "text-danger" })
+    <dl class="dl-horizontal font-details">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetPlaces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetPlaces)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AllPlaces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AllPlaces)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="">
+            <input type="submit" value="Delete" class="btn btn-default" /> 
+            <div class="btn btn-partial">@Html.ActionLink("Back to List", "GetFaculty",new { controller = "Faculty", Area = "Operator" })</div>
+        </div>
+    }
+</div>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Anna_Bondarenko_FinalTask.Models.Models.Faculty>
+
+@{
+    ViewBag.Title = "GetFaculty";
+}
+
+<p>
+    @Html.ActionLink("Create New Faculty", "FacultyCreate", new { controller = "Faculty", Area = "Operator" })
+</p>
+
+@Html.ValidationMessage("FacultyDelete", new { @class = "text-danger" })
+
+<table class="table">
+    <tr>
+        <th>
+            <div class="ellipce-for-table"> @Html.ActionLink("FacultyName", "SortByName", new { controller = "Faculty", Area = "Operator"})</div>
+        </th>
+        <th>
+            <div class="ellipce-for-table"> @Html.DisplayNameFor(model => model.FacultyNumber)</div>
+        </th>
+        <th>
+            <div class="ellipce-for-table">@Html.DisplayNameFor(model => model.BudgetPlaces)</div>
+        </th>
+        <th>
+            <div class="ellipce-for-table"> @Html.DisplayNameFor(model => model.AllPlaces)</div>
+        </th>
+        <th><div class="ellipce-for-table">  Action </div></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div class="ellipce-for-table-call"> @Html.DisplayFor(modelItem => item.Name)</div>
+            </td>
+            <td>
+                <div class="ellipce-for-table-call"> @Html.DisplayFor(modelItem => item.FacultyNumber)</div>
+            </td>
+            <td>
+                <div class="ellipce-for-table-call">@Html.DisplayFor(modelItem => item.BudgetPlaces)</div>
+            </td>
+            <td>
+                <div class="ellipce-for-table-call"> @Html.DisplayFor(modelItem => item.AllPlaces)</div>
+            </td>
+            <td>
+                <div class="ellipce-for-table-call">
+                    @Html.ActionLink("Edit", "FacultyEdit", new { controller = "Faculty", Area = "Operator", id = item.Id })
+                    @Html.ActionLink("Details", "FacultyDetails", new { controller = "Faculty", Area = "Operator", id = item.Id })
+                    @Html.ActionLink("Delete", "FacultyDelete", new { controller = "Faculty", Area = "Operator", id = item.Id })
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
